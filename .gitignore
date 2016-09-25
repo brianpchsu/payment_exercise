@@ -1,0 +1,5 @@
+// system files
+.DS_Store
+
+// 3rd party libs
+node_modules/

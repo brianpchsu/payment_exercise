@@ -1,0 +1,12 @@
+{
+  "name": "Payment_Exercise",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Brian Hsu",
+  "dependencies": {
+    "express": "^4.14.0",
+    "request": "^2.75.0"
+  }
+}
