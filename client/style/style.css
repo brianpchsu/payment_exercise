@@ -1,3 +1,8 @@
+body {
+  font-family: Tahoma, Georgia, sans-serif;
+  font-size: 16px;
+}
+
 .loader {
   color: #0000ff;
   font-size: 20px;
@@ -66,4 +71,50 @@
   87.5% {
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    z-index:1000;
+    height:3em;
+
+    background: #0070ba;
+    border-color: #ddd;
+    /*color: #333;*/
+}
+
+header h1{
+    margin: 1em;
+    font-size: 1em;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 3em;
+
+    background: #0070ba;
+    border-color: #ddd;
+    /*color: #333;*/
+}
+
+#transactionTable {
+  width: 100%;
+  text-align: center;
+}
+
+#transactionTable tr:nth-child(odd) {
+  background-color: #e1e1e1;
+}
+
+#transactionTable td{
+  width: 33.3%;
+  height: 50px;
 }

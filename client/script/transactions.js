@@ -32,6 +32,6 @@ function showTransactions(allTransactions) {
 
     cellTime.innerHTML = new Date(allTransactions[i].timestamp).toLocaleDateString();
     cellRecipient.innerHTML = allTransactions[i].name;
-    cellAmount.innerHTML = allTransactions[i].amount;
+    cellAmount.innerHTML = '$' + allTransactions[i].amount;
   }
 }
