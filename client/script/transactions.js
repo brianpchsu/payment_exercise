@@ -3,7 +3,6 @@ var endIndex = 0;
 var isFetchingData = false;
 var topWindowY = 0;
 var scrollDown = false;
-var count = 1;
 
 window.onload = function(){
   document.getElementById('backToHome').onclick=function(){
@@ -52,9 +51,9 @@ function monitorScroll() {
 
 function showTransactions(allTransactions) {
   var targetTable = document.getElementById('transactionTable');
-  var targetLen = allTransactions.length;
+  var responseLength = allTransactions.length;
 
-  for(var i = targetLen -1 ; i >= 0; i--) {
+  for(var i = responseLength -1 ; i >= 0; i--) {
     // insert record to the end of the table
     var tableRow = targetTable.insertRow(-1);
     var cellTime = tableRow.insertCell(0);
@@ -64,8 +63,12 @@ function showTransactions(allTransactions) {
     cellTime.innerHTML = new Date(allTransactions[i].timestamp).toLocaleDateString();
     cellRecipient.innerHTML = allTransactions[i].name;
     cellAmount.innerHTML = '$' + allTransactions[i].amount;
-    console.log('count is ', count++);
   }
-  // update boolean to allow next fetch
-  isFetchingData = false;
+  // if respone contains record, toggle isFetchingData back to false for next fetch
+  // if there is no data in response, then keep the isFetchingData true to prevent multiple unnecessary calls
+  // TODO: refactor this logic to consider all the edge cases
+  if(responseLength > 0) {
+    // update boolean to allow next fetch
+    isFetchingData = false;
+  }
 }
