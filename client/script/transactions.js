@@ -34,7 +34,6 @@ function getTransactions() {
 
 function monitorScroll() {
   var transactionTable = document.getElementById("transactionTable");
-  // when user reach to 70% of the table data, get next 20 records
 
   if(window.scrollY > topWindowY) {
     scrollDown = true;
@@ -42,8 +41,10 @@ function monitorScroll() {
   } else {
     scrollDown = false;
   }
+
+  // when user reach to 70% of the table data, get next 20 records
   if (scrollDown && window.scrollY > transactionTable.offsetHeight * 0.7 && !isFetchingData) {
-    // set isFetchingData to true to prevent fetch multiple before data gets inserted to table
+    // set isFetchingData to true to prevent multiple http calls before one result get inserted to table
     isFetchingData = true;
     getTransactions();
   }
