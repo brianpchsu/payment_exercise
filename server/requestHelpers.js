@@ -28,7 +28,10 @@ function getTransactions(req, res) {
   var end = parseInt(query.endIndex);
 
   var transactionCopy;
-  transactionCopy = transactionCache.slice(transactionCache.length - start, transactionCache.length - end);
+  // checks to make sure the indexes won't go out of boundary
+  var copyStart = transactionCache.length - start >= 0 ? transactionCache.length - start : 0;
+  var coptyEnd = transactionCache.length - end >= 0 ? transactionCache.length - end : 0;
+  transactionCopy = transactionCache.slice(copyStart, coptyEnd);
 
   // console.log('transactionCopy is ', transactionCopy);
   res.setHeader('Content-Type', 'application/json');

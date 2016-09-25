@@ -55,7 +55,7 @@ main {
   background-color: #e1e1e1;
 }
 
-#transactionTable td{
+#transactionTable th, #transactionTable td{
   width: 33.3%;
   height: 50px;
 }
