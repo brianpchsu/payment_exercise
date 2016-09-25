@@ -32,18 +32,46 @@ footer {
 }
 
 footer button{
-  font-family: Tahoma, Georgia, sans-serif;
-  font-weight: bold;
-  font-size: 1em;
+  color: #fff;
   height: 2em;
   margin: .25em;
-  width: 80%;
   max-width: 10em;
 }
 
 main {
   padding-top: 3em;
   padding-bottom: 3em;
+}
+
+button{
+  font-family: Tahoma, Georgia, sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  font-weight: bold;
+
+  height: 2.5em;
+  width: 80%;
+  min-width: 7em;
+  margin: 0 auto;
+  position: relative;
+
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+
+  background-color: transparent;
+  box-shadow: 0 0 0.1em 0.1em #0070ba;
+
+  border-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.5em;
+}
+
+.centerX {
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #transactionTable {
