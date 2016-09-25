@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 var requestHelpers = require('./server/requestHelpers.js');
 
+requestHelpers.initGetTransactions();
 app.use(express.static(__dirname + '/client'));
 
 app.get('/getTransactions', requestHelpers.getTransactions);
