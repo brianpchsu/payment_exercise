@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Send Money</title>
+  <link rel="stylesheet" href="style/style.css">
+  <script type="text/javascript" src="script/sendMoney.js"></script>
+</head>
+<body>
+  <section id="sendMoneySection">
+    <header>
+      <h1>Send Money</h1>
+    </header>
+
+    <form id="moneyForm">
+      <label for="recipient">To:</label><input type="email" name="recipient" placeholder="Email">
+      <label for="amount">Amount:</label><input type="number" name="amount" placeholder="Amount">
+      <select name="Currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="JPY">JPY</option>
+      </select>
+      <label for="message">Message:</label><input type="text" name="message">
+
+      <div>
+        <legend value="">What is the payment for?</legend>
+
+        <input id="familyfriends" type="radio" name="paymentType" value="ff" checked>
+        <label for="familyfriends">I'm Sending Money to family or friends</label>
+
+        <input id="goodservice" type="radio" name="paymentType" value="gs">
+        <label for="goodservice">I'm paying for goods or services</label>
+      </div>
+
+    </form>
+
+    <div class="loader"></div>
+    <footer>
+      <button id="clearInput">Clear</button>
+      <button id="transferMoney">Next</button>
+    </footer>
+  </section>
+
+<!--   <section id="processTransaction">
+    <header>
+      <h1>Processing Transaction...</h1>
+    </header>
+
+  </section> -->
+
+  <section id="successSection">
+    <header>
+      <h1>Transaction completed.</h1>
+    </header>
+
+    <p> You have sent <span id="lastPerson">Someone</span> <span id="lastAmount">Someamount </span>successfully.</p>
+
+    <footer>
+      <button id="sendMoney">Send Money</button>
+    </footer>
+  </section>
+</body>
+</html>
