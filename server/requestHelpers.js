@@ -1,6 +1,7 @@
 'use strict';
 
 var request = require('request');
+var url = require('url');
 var transactionCache;
 
 function initGetTransactions() {
@@ -16,33 +17,22 @@ function processTransactionRes(error, response, body) {
   }
   if (!error && response.statusCode == 200) {
     console.log('In init, save transaction to cache');
-    transactionCache = body;
+    transactionCache = JSON.parse(body);
   }
 }
 
 function getTransactions(req, res) {
-  console.log('call getTransactions');
-  if (transactionCache) {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(transactionCache);
-  } else {
-    // TODO: Refactor the code to make it clean (DRY)
-    request.get('http://beta.json-generator.com/api/json/get/4kFdw7gpb',
-      sendTransactionResponse.bind(undefined, res));
-  }
-}
+  // get the url query string
+  var query = url.parse(req.url, true).query;
+  var start = parseInt(query.startIndex);
+  var end = parseInt(query.endIndex);
 
-function sendTransactionResponse(res, error, response, body) {
-  console.log('make http call to transaction');
-  if (error) {
-    console.error('Request transaction failed! Error is: ', error);
-    res.status(404).end();
-  }
-  if (!error && response.statusCode == 200) {
-    transactionCache = body;
-    res.setHeader('Content-Type', 'application/json');
-    res.send(body);
-  }
+  var transactionCopy;
+  transactionCopy = transactionCache.slice(transactionCache.length - start, transactionCache.length - end);
+
+  // console.log('transactionCopy is ', transactionCopy);
+  res.setHeader('Content-Type', 'application/json');
+  res.send(transactionCopy);
 }
 
 exports.initGetTransactions = initGetTransactions;
