@@ -13,6 +13,11 @@ Have Nodejs installed locally.
 Running
 > nonde index.js
 
-Open browser with thr url: http://localhost:9000/
+Open browser with this url: http://localhost:9000/
 
 
+### Snapshots
+![Home Screen] (./screenshot/home_screen.png?raw=true)
+![Send Money] (./screenshot/send_money.png?raw=true)
+![Confirmation] (./screenshot/confirm.png?raw=true)
+![Transactions] (./screenshot/transactions.png?raw=true)
