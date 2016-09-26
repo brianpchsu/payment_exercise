@@ -21,23 +21,28 @@ function submitMoneyForm() {
   var message = document.moneyForm.message.value;
   var transactionType = document.querySelector('input[name="paymentType"]:checked').value;
 
-  if(checkValidEmail(email) && parseFloat(amount) > 0) {
+  if (checkValidEmail(email) && parseFloat(amount) > 0) {
     // assemble the param and decorate the url
     var params = generateParams(email, amount, message, transactionType);
     var url = document.getElementById("moneyForm").action + params;
     var submitFormReq = new XMLHttpRequest();
-    console.log('params ', params);
 
+    var spinnerObj = document.getElementById("spinner");
     submitFormReq.onreadystatechange = function processHttpResponse() {
-      if(submitFormReq.readyState === 4 && submitFormReq.status === 200) {
-        console.log('send to server!');
+      if (submitFormReq.readyState === 0) {
+        console.log('just submit!');
+        // Show the hidden spinner
+        spinnerObj.style.display = 'block';
+      }
+      if (submitFormReq.readyState === 4 && submitFormReq.status === 201) {
+        // var submittedRecord = JSON.parse(submitFormReq.responseText);
+        // console.log('Returned submittedRecord ', submittedRecord);
+        // hide the spinner
+        console.log('Returned from server ');
+        spinnerObj.style.display = 'none';
       }
     }
     submitFormReq.open('POST', url, true);
-    submitFormReq.setRequestHeader("Content-type", "application/json; charset=utf-8");
-    // submitFormReq.setRequestHeader("Content-length", params.length);
-    // submitFormReq.setRequestHeader("Connection", "close");
-
     submitFormReq.send();
 
   } else {
@@ -50,7 +55,7 @@ function initEmailCheck() {
   var emailInput = document.moneyForm.recipient;
   emailInput.onchange = function() {
     var email = emailInput.value;
-    if(checkValidEmail(email)) {
+    if (checkValidEmail(email)) {
       emailInput.className = 'validInput';
       var checkMarkIcon = document.getElementById('checkmark');
       checkMarkIcon.style.visibility = 'visible';
@@ -72,7 +77,7 @@ function initAmountCheck() {
  var amountInput = document.moneyForm.amount;
  amountInput.onchange = function() {
   var moneyAmount = amountInput.value;
-  if(moneyAmount < 0) {
+  if (moneyAmount < 0) {
     amountInput.className = 'invalidInput';
   } else {
     // correct the input amount to 2 decimal points

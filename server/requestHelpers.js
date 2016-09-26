@@ -39,12 +39,15 @@ function getTransactions(req, res) {
 }
 
 function processPayment(req, res) {
-  var query = url.parse(req.url, true).query;
-  console.log('request url is ', req.url);
-  console.log('request query is ', query);
-
+  var transaction = url.parse(req.url, true).query;
+  var currentTime = new Date().toISOString();
+  transaction.timestamp = currentTime;
+  // Use the email as name for new transaction for now
+  transaction.name = transaction.email;
+  // TODO: Refactor the transaction from front end to server side to have consistent object format
+  // add the processed transaction to the transaciton records
+  transactionCache.push(transaction);
   res.setHeader('Content-Type', 'application/json');
-  // res.write(JSON.stringify(responseData));
   res.sendStatus(201);
 
 }
