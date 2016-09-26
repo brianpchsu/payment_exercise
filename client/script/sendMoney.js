@@ -3,6 +3,8 @@ window.onload = function(){
 
   document.getElementById('transferMoney').onclick = submitMoneyForm;
 
+  document.getElementById('backToHome').onclick = routeToHome;
+
   initEmailCheck();
   initAmountCheck();
 };
@@ -29,22 +31,24 @@ function submitMoneyForm() {
 
     var spinnerObj = document.getElementById("spinner");
     submitFormReq.onreadystatechange = function processHttpResponse() {
-      if (submitFormReq.readyState === 0) {
-        console.log('just submit!');
+      if (submitFormReq.readyState === 1) {
+        // TODO: maybe add the transition time to 0.5s to at least see the transition for better UX
         // Show the hidden spinner
         spinnerObj.style.display = 'block';
       }
       if (submitFormReq.readyState === 4 && submitFormReq.status === 201) {
-        // var submittedRecord = JSON.parse(submitFormReq.responseText);
-        // console.log('Returned submittedRecord ', submittedRecord);
         // hide the spinner
         console.log('Returned from server ');
+        document.getElementById("sentAmount").innerHTML = amount;
+        document.getElementById("sentPerson").innerHTML = email;
+
+        document.getElementById("successSection").style.display = 'block';
+        document.getElementById("sendMoneySection").style.display = 'none';
         spinnerObj.style.display = 'none';
       }
     }
     submitFormReq.open('POST', url, true);
     submitFormReq.send();
-
   } else {
     alert('Please enter valid email address and amount.');
   }
@@ -89,4 +93,8 @@ function initAmountCheck() {
 
 function generateParams(email, amount, message, transactionType) {
   return '?email=' + email + '&amount=' + amount + '&message=' + message + '&type=' + transactionType;
+}
+
+function routeToHome(){
+  window.location = '/';
 }
