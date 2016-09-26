@@ -24,3 +24,11 @@ Send money and see result in transaction history: http://screencast.com/t/Da3sJd
 ![Send Money] (./screenshot/send_money.png?raw=true)
 ![Confirmation] (./screenshot/confirm.png?raw=true)
 ![Transactions] (./screenshot/transactions.png?raw=true)
+
+### TODO:
+1. Finish styling
+2. Move general route functions to separated JS module
+3. Constant-ize request urls
+4. Consider all the edge cases when reaching the end of transaction data
+5. Show spinner for 0.5s after submitting transaction to have better UX
+6. Provide node health check end point with cpu and memory usage
