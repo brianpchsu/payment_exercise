@@ -11,30 +11,45 @@
       <h1>Send Money</h1>
     </header>
 
-    <form id="moneyForm">
-      <label for="recipient">To:</label><input type="email" name="recipient" placeholder="Email">
-      <label for="amount">Amount:</label><input type="number" name="amount" placeholder="Amount">
-      <select name="Currency">
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="JPY">JPY</option>
-      </select>
-      <label for="message">Message:</label><input type="text" name="message">
+    <main>
+      <form id="moneyForm" name="moneyForm">
+          <div>
+            <label for="recipient">To: </label>
+            <input id="recipientEmail" type="email" name="recipient" placeholder="Email" required>
+            <span id="checkmark" class="hideElem"></span>
+          </div>
 
-      <div>
-        <legend value="">What is the payment for?</legend>
+          <div>
+            <label for="amount">Amount: </label>
+            <input type="number" name="amount" placeholder="Amount" required>
+            <select name="Currency">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="JPY">JPY</option>
+            </select>
+          </div>
 
-        <input id="familyfriends" type="radio" name="paymentType" value="ff" checked>
-        <label for="familyfriends">I'm Sending Money to family or friends</label>
+          <div>
+            <label for="message">Message: </label>
+            <input type="text" name="message" placeholder="Optional message">
+          </div>
 
-        <input id="goodservice" type="radio" name="paymentType" value="gs">
-        <label for="goodservice">I'm paying for goods or services</label>
-      </div>
+        <div>
+          <legend value="">What is the payment for?</legend>
 
-    </form>
+          <input id="familyfriends" type="radio" name="paymentType" value="ff" checked>
+          <label for="familyfriends">I'm Sending Money to family or friends</label>
 
-    <div class="loader"></div>
-    <footer>
+          <input id="goodservice" type="radio" name="paymentType" value="gs">
+          <label for="goodservice">I'm paying for goods or services</label>
+        </div>
+
+      </form>
+
+      <div class="loader"></div>
+    </main>
+
+    <footer class="centerX">
       <button id="clearInput">Clear</button>
       <button id="transferMoney">Next</button>
     </footer>
@@ -47,16 +62,18 @@
 
   </section> -->
 
-  <section id="successSection">
+  <!-- <section id="successSection">
     <header>
       <h1>Transaction completed.</h1>
     </header>
 
     <p> You have sent <span id="lastAmount">Someamount </span> to <span id="lastPerson">Someone</span>!</p>
 
-    <footer>
-      <button id="sendMoney">Send Money</button>
+    <footer class="centerX">
+      <button id="backToHome">Back</button>
     </footer>
-  </section>
+  </section> -->
+
+
 </body>
 </html>
