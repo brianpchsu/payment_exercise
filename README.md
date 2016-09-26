@@ -15,7 +15,10 @@ Running
 
 Open browser with this url: http://localhost:9000/
 
+### Working demo
+Infinite scrolling: http://screencast.com/t/I6Xq57Ewo00d
 
+Sending money and see result in transaction history: http://screencast.com/t/Da3sJdV1aj6S
 ### Snapshots
 ![Home Screen] (./screenshot/home_screen.png?raw=true)
 ![Send Money] (./screenshot/send_money.png?raw=true)
