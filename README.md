@@ -3,7 +3,7 @@ This is the exercise for mock payment. It is a fun challenge.
 
 ##Installation instruction:
 
-Have Nodejs installed locally.
+Have NodeJS installed locally.
 > git clone https://github.com/brianpchsu/payment_exercise.git
 
 > cd payment_exercise
@@ -25,10 +25,10 @@ Send money and see result in transaction history: http://screencast.com/t/Da3sJd
 ![Confirmation] (./screenshot/confirm.png?raw=true)
 ![Transactions] (./screenshot/transactions.png?raw=true)
 
-### TODO:
+### TODOs:
 1. Finish styling
 2. Move general route functions to separated JS module
 3. Constant-ize request urls
-4. Consider all the edge cases when reaching the end of transaction data
-5. Show spinner for 0.5s after submitting transaction to have better UX
-6. Provide node health check end point with cpu and memory usage
+4. Consider all the edge cases when reaching to the end of transaction data
+5. Show spinner for 0.5s after submitting transaction form to have better UX
+6. Provide NodeJS health check end point with cpu and memory usage info
