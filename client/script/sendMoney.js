@@ -16,6 +16,33 @@ function resetForm(){
 
 function submitMoneyForm() {
   // post form to server
+  var email = document.moneyForm.recipient.value;
+  var amount = document.moneyForm.amount.value;
+  var message = document.moneyForm.message.value;
+  var transactionType = document.querySelector('input[name="paymentType"]:checked').value;
+
+  if(checkValidEmail(email) && parseFloat(amount) > 0) {
+    // assemble the param and decorate the url
+    var params = generateParams(email, amount, message, transactionType);
+    var url = document.getElementById("moneyForm").action + params;
+    var submitFormReq = new XMLHttpRequest();
+    console.log('params ', params);
+
+    submitFormReq.onreadystatechange = function processHttpResponse() {
+      if(submitFormReq.readyState === 4 && submitFormReq.status === 200) {
+        console.log('send to server!');
+      }
+    }
+    submitFormReq.open('POST', url, true);
+    submitFormReq.setRequestHeader("Content-type", "application/json; charset=utf-8");
+    // submitFormReq.setRequestHeader("Content-length", params.length);
+    // submitFormReq.setRequestHeader("Connection", "close");
+
+    submitFormReq.send();
+
+  } else {
+    alert('Please enter valid email address and amount.');
+  }
 
 };
 
@@ -47,9 +74,14 @@ function initAmountCheck() {
   var moneyAmount = amountInput.value;
   if(moneyAmount < 0) {
     amountInput.className = 'invalidInput';
-    // document.moneyForm.amount.value = 0;
   } else {
+    // correct the input amount to 2 decimal points
+    document.moneyForm.amount.value = Number(moneyAmount).toFixed(2);
     amountInput.className = 'validInput';
   }
  };
+}
+
+function generateParams(email, amount, message, transactionType) {
+  return '?email=' + email + '&amount=' + amount + '&message=' + message + '&type=' + transactionType;
 }

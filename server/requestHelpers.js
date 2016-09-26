@@ -38,5 +38,17 @@ function getTransactions(req, res) {
   res.send(transactionCopy);
 }
 
+function processPayment(req, res) {
+  var query = url.parse(req.url, true).query;
+  console.log('request url is ', req.url);
+  console.log('request query is ', query);
+
+  res.setHeader('Content-Type', 'application/json');
+  // res.write(JSON.stringify(responseData));
+  res.sendStatus(201);
+
+}
+
 exports.initGetTransactions = initGetTransactions;
 exports.getTransactions = getTransactions;
+exports.processPayment = processPayment;
