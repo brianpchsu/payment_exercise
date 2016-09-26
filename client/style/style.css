@@ -72,6 +72,13 @@ button{
   border-radius: 0.5em;
 }
 
+
+input {
+  margin: 0 0 0.5em 0;
+  height: 2em;
+  border-radius: 0.5em;
+}
+
 .centerX {
   text-align:center;
   margin-left: auto;

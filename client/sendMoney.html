@@ -13,13 +13,13 @@
 
     <main>
       <form id="moneyForm" name="moneyForm" action="/submitPayment" method="POST">
-          <div>
+          <div class="inputCell">
             <label for="recipient">To: </label>
             <input id="recipientEmail" type="email" name="recipient" placeholder="Email" required>
             <span id="checkmark" class="hideElem"></span>
           </div>
 
-          <div>
+          <div class="inputCell">
             <label for="amount">Amount: </label>
             <input type="number" name="amount" placeholder="Amount" min="0" required>
             <select name="Currency" id="currency">
@@ -29,7 +29,7 @@
             </select>
           </div>
 
-          <div>
+          <div class="inputCell">
             <label for="message">Message: </label>
             <input type="text" name="message" placeholder="Optional message">
           </div>
@@ -37,11 +37,15 @@
         <div>
           <p>What is the payment for?</p>
 
-          <input id="familyfriends" type="radio" name="paymentType" value="0" checked>
-          <label for="familyfriends">I'm Sending Money to family or friends</label>
+          <div class="inputCell">
+            <input id="familyfriends" type="radio" name="paymentType" value="0" checked>
+            <label for="familyfriends">I'm Sending Money to family or friends</label>
+          </div>
 
-          <input id="goodservice" type="radio" name="paymentType" value="1">
-          <label for="goodservice">I'm paying for goods or services</label>
+          <div class="inputCell">
+            <input id="goodservice" type="radio" name="paymentType" value="1">
+            <label for="goodservice">I'm paying for goods or services</label>
+          </div>
         </div>
 
       </form>
