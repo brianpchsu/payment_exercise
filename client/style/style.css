@@ -133,6 +133,14 @@ button{
   visibility: hidden;
 }
 
+.invalidInput {
+  border: 0.1em solid red;
+}
+
+.validInput {
+  border: 0.1em solid green;
+}
+
 /*loader animation*/
 .loader {
   color: #0000ff;

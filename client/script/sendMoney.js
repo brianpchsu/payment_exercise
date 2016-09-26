@@ -4,8 +4,7 @@ window.onload = function(){
   document.getElementById('transferMoney').onclick = submitMoneyForm;
 
   initEmailCheck();
-
-  // TODO: implement check for positive number
+  initAmountCheck();
 };
 
 function resetForm(){
@@ -15,7 +14,7 @@ function resetForm(){
   checkMarkIcon.style.visibility = 'hidden';
 }
 
-function(){
+function submitMoneyForm() {
   // post form to server
 
 };
@@ -40,4 +39,17 @@ function initEmailCheck() {
 function checkValidEmail(email) {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
+}
+
+function initAmountCheck() {
+ var amountInput = document.moneyForm.amount;
+ amountInput.onchange = function() {
+  var moneyAmount = amountInput.value;
+  if(moneyAmount < 0) {
+    amountInput.className = 'invalidInput';
+    // document.moneyForm.amount.value = 0;
+  } else {
+    amountInput.className = 'validInput';
+  }
+ };
 }
