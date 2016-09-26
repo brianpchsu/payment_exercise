@@ -11,14 +11,14 @@ Have Nodejs installed locally.
 > npm install
 
 Running
-> nonde index.js
+> node index.js
 
 Open browser with this url: http://localhost:9000/
 
 ### Working demo
-Infinite scrolling: http://screencast.com/t/I6Xq57Ewo00d
+Infinite scrolling with initial 300 transactions data: http://screencast.com/t/I6Xq57Ewo00d
 
-Sending money and see result in transaction history: http://screencast.com/t/Da3sJdV1aj6S
+Send money and see result in transaction history: http://screencast.com/t/Da3sJdV1aj6S
 ### Snapshots
 ![Home Screen] (./screenshot/home_screen.png?raw=true)
 ![Send Money] (./screenshot/send_money.png?raw=true)
