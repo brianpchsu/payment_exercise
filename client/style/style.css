@@ -148,6 +148,14 @@ input {
   border: 0.1em solid green;
 }
 
+#spinner {
+  display: none;
+}
+
+#successSection {
+  display: none;
+}
+
 /*loader animation*/
 .loader {
   color: #0000ff;
@@ -219,12 +227,4 @@ input {
   87.5% {
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
-}
-
-#spinner {
-  display: none;
-}
-
-#successSection {
-  display: none;
 }

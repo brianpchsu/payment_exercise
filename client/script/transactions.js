@@ -45,7 +45,7 @@ function monitorScroll() {
     scrollDown = false;
   }
 
-  // when user reach to 70% of the table data, get next 20 records
+  // when user reaches to 70% of the table data, get next 20 records
   if (scrollDown && window.scrollY > transactionTable.offsetHeight * 0.7 && !isFetchingData) {
     // set isFetchingData to true to prevent multiple http calls before one result get inserted to table
     isFetchingData = true;
@@ -69,7 +69,7 @@ function showTransactions(allTransactions) {
     cellAmount.innerHTML = allTransactions[i].amount;
   }
   // if respone contains record, toggle isFetchingData back to false for next fetch
-  // if there is no data in response, then keep the isFetchingData true to prevent multiple unnecessary calls
+  // if there is no data in response, then keep the isFetchingData true to prevent multiple unnecessary calls (not ideal)
   // TODO: refactor this logic to consider all the edge cases
   if(responseLength > 0) {
     // update boolean to allow next fetch

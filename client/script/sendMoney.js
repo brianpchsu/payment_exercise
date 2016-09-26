@@ -104,6 +104,7 @@ function generateParams(email, amount, message, transactionType) {
   return '?email=' + email + '&amount=' + amount + '&message=' + message + '&type=' + transactionType;
 }
 
+// TODO: move general route function to its own JS module
 function routeToHome(){
   window.location = '/';
 }

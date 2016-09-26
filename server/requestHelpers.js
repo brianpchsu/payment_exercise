@@ -33,7 +33,6 @@ function getTransactions(req, res) {
   var coptyEnd = transactionCache.length - end >= 0 ? transactionCache.length - end : 0;
   transactionCopy = transactionCache.slice(copyStart, coptyEnd);
 
-  // console.log('transactionCopy is ', transactionCopy);
   res.setHeader('Content-Type', 'application/json');
   res.send(transactionCopy);
 }
@@ -44,7 +43,7 @@ function processPayment(req, res) {
   transaction.timestamp = currentTime;
   // Use the email as name for new transaction for now
   transaction.name = transaction.email;
-  // TODO: Refactor the transaction from front end to server side to have consistent object format
+  // TODO: Refactor the transaction object to have consistent format
   // add the processed transaction to the transaciton records
   transactionCache.push(transaction);
   res.setHeader('Content-Type', 'application/json');
