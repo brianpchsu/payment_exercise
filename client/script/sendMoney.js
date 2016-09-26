@@ -1,33 +1,40 @@
 window.onload = function(){
-  document.getElementById('clearInput').onclick = function(){
-    // get all the element and clear all their content
-    document.getElementById('moneyForm').reset();
-  };
+  document.getElementById('clearInput').onclick = resetForm;
 
-  document.getElementById('transferMoney').onclick = function(){
-    // post form to server
-  };
+  document.getElementById('transferMoney').onclick = submitMoneyForm;
 
-  // check valid email
+  initEmailCheck();
+
+  // TODO: implement check for positive number
+};
+
+function resetForm(){
+  // get all the element and clear all their content
+  document.getElementById('moneyForm').reset();
+  var checkMarkIcon = document.getElementById('checkmark');
+  checkMarkIcon.style.visibility = 'hidden';
+}
+
+function(){
+  // post form to server
+
+};
+
+function initEmailCheck() {
   var emailInput = document.moneyForm.recipient;
   emailInput.onchange = function() {
     var email = emailInput.value;
-    console.log('email is ', email);
-
     if(checkValidEmail(email)) {
-      console.log('valid email');
       emailInput.className = 'validInput';
       var checkMarkIcon = document.getElementById('checkmark');
       checkMarkIcon.style.visibility = 'visible';
     } else {
-      console.log('Invalid email');
       emailInput.className = 'invalidInput';
       var checkMarkIcon = document.getElementById('checkmark');
       checkMarkIcon.style.visibility = 'hidden';
     }
   };
-
-};
+}
 
 // Use regular expressions to check email, ref: http://stackoverflow.com/a/46181/3525493
 function checkValidEmail(email) {

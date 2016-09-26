@@ -12,7 +12,7 @@
     </header>
 
     <main>
-      <form id="moneyForm" name="moneyForm">
+      <form id="moneyForm" name="moneyForm" action="/submitPayment" method="POST">
           <div>
             <label for="recipient">To: </label>
             <input id="recipientEmail" type="email" name="recipient" placeholder="Email" required>
@@ -21,7 +21,7 @@
 
           <div>
             <label for="amount">Amount: </label>
-            <input type="number" name="amount" placeholder="Amount" required>
+            <input type="number" name="amount" placeholder="Amount" min="0" required>
             <select name="Currency">
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
@@ -35,7 +35,7 @@
           </div>
 
         <div>
-          <legend value="">What is the payment for?</legend>
+          <p>What is the payment for?</p>
 
           <input id="familyfriends" type="radio" name="paymentType" value="ff" checked>
           <label for="familyfriends">I'm Sending Money to family or friends</label>
@@ -46,7 +46,7 @@
 
       </form>
 
-      <div class="loader"></div>
+      <div class="loader" id="spinner"></div>
     </main>
 
     <footer class="centerX">

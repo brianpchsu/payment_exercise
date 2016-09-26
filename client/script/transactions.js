@@ -4,20 +4,22 @@ var isFetchingData = false;
 var topWindowY = 0;
 var scrollDown = false;
 
-window.onload = function(){
-  document.getElementById('backToHome').onclick=function(){
-    window.location = '/';
-  };
+window.onload = function() {
+  document.getElementById('backToHome').onclick = routeToHome;
 
   getTransactions();
 
   window.onscroll = monitorScroll;
 };
 
+function routeToHome(){
+  window.location = '/';
+}
+
 function getTransactions() {
   console.log('get new transactions!!');
   var transactionReq = new XMLHttpRequest();
-  transactionReq.onreadystatechange = function() {
+  transactionReq.onreadystatechange = function processHttpResponse() {
     if(transactionReq.readyState === 4 && transactionReq.status === 200) {
       var allTransactions = JSON.parse(transactionReq.responseText);
       console.log('transactionArr from request is', allTransactions);
@@ -32,9 +34,10 @@ function getTransactions() {
   startIndex += 20;
 }
 
+
+
 function monitorScroll() {
   var transactionTable = document.getElementById("transactionTable");
-
   if(window.scrollY > topWindowY) {
     scrollDown = true;
     topWindowY = window.scrollY;
