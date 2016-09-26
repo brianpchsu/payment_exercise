@@ -27,8 +27,9 @@ Send money and see result in transaction history: http://screencast.com/t/Da3sJd
 
 ### TODOs:
 1. Finish styling
-2. Move general route functions to separated JS module
-3. Constant-ize request urls
-4. Consider all the edge cases when reaching to the end of transaction data
-5. Show spinner for 0.5s after submitting transaction form to have better UX
-6. Provide NodeJS health check end point with cpu and memory usage info
+2. Move general route functions to separate JS module
+3. Provide more edge cases handling for XMLHttpRequest response
+4. Constant-ize request urls
+5. Consider all the edge cases when reaching to the end of transaction data
+6. Show spinner for 0.5s after submitting transaction form to have better UX
+7. Provide NodeJS health check end point with cpu and memory usage info
