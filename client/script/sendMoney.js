@@ -1,3 +1,9 @@
+var currencyMap = {
+  'USD': '$',
+  'EUR': '€',
+  'JPY': '¥'
+};
+
 window.onload = function(){
   document.getElementById('clearInput').onclick = resetForm;
 
@@ -19,13 +25,16 @@ function resetForm(){
 function submitMoneyForm() {
   // post form to server
   var email = document.moneyForm.recipient.value;
+  var currencyOption = document.getElementById("currency");
+  var currency = currencyOption.options[currencyOption.selectedIndex].value;
   var amount = document.moneyForm.amount.value;
   var message = document.moneyForm.message.value;
   var transactionType = document.querySelector('input[name="paymentType"]:checked').value;
 
   if (checkValidEmail(email) && parseFloat(amount) > 0) {
+    var amountWithCurrency = currencyMap[currency] + amount;
     // assemble the param and decorate the url
-    var params = generateParams(email, amount, message, transactionType);
+    var params = generateParams(email, amountWithCurrency, message, transactionType);
     var url = document.getElementById("moneyForm").action + params;
     var submitFormReq = new XMLHttpRequest();
 
@@ -39,7 +48,7 @@ function submitMoneyForm() {
       if (submitFormReq.readyState === 4 && submitFormReq.status === 201) {
         // hide the spinner
         console.log('Returned from server ');
-        document.getElementById("sentAmount").innerHTML = amount;
+        document.getElementById("sentAmount").innerHTML = amountWithCurrency;
         document.getElementById("sentPerson").innerHTML = email;
 
         document.getElementById("successSection").style.display = 'block';

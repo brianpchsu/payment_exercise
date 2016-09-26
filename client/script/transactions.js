@@ -66,7 +66,7 @@ function showTransactions(allTransactions) {
 
     cellTime.innerHTML = new Date(allTransactions[i].timestamp).toLocaleDateString();
     cellRecipient.innerHTML = allTransactions[i].name;
-    cellAmount.innerHTML = '$' + allTransactions[i].amount;
+    cellAmount.innerHTML = allTransactions[i].amount;
   }
   // if respone contains record, toggle isFetchingData back to false for next fetch
   // if there is no data in response, then keep the isFetchingData true to prevent multiple unnecessary calls

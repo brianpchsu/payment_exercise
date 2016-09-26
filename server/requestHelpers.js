@@ -7,7 +7,7 @@ var transactionCache;
 function initGetTransactions() {
   if(!transactionCache) {
     // TODO: constant-ize the url
-    request.get('http://beta.json-generator.com/api/json/get/4kFdw7gpb', processTransactionRes);
+    request.get('http://beta.json-generator.com/api/json/get/VJludYZTb', processTransactionRes);
   }
 }
 
