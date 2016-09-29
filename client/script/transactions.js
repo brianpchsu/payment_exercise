@@ -3,6 +3,7 @@ var endIndex = 0;
 var isFetchingData = false;
 var topWindowY = 0;
 var scrollDown = false;
+var lastRequestTimeStamp;
 
 window.onload = function() {
   document.getElementById('backToHome').onclick = routeToHome;
@@ -46,10 +47,12 @@ function monitorScroll() {
   }
 
   // when user reaches to 70% of the table data, get next 20 records
-  if (scrollDown && window.scrollY > transactionTable.offsetHeight * 0.7 && !isFetchingData) {
+  if (scrollDown && window.scrollY > transactionTable.offsetHeight * 0.7 && !isFetchingData && checkTrottle()) {
     // set isFetchingData to true to prevent multiple http calls before one result get inserted to table
     isFetchingData = true;
     getTransactions();
+    // update last req time
+    lastRequestTimeStamp = new Date();
   }
 }
 
@@ -75,4 +78,9 @@ function showTransactions(allTransactions) {
     // update boolean to allow next fetch
     isFetchingData = false;
   }
+}
+
+function checkTrottle() {
+  var current = new Date();
+  return current - checkTrottle > 500;
 }
